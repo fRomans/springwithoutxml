@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.javamaster</groupId>
-    <artifactId>springwithoutxml</artifactId>
+    <artifactId>springSecurity</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springwithoutxml Maven Webapp</name>
+    <name>springSecurity Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -27,6 +27,19 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.3.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.3.3.RELEASE</version>
+        </dependency>
+
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -54,6 +67,11 @@
             <version>8.0.19</version>
         </dependency>
         <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+            <version>3.0.9.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
@@ -61,7 +79,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>springwithoutxml</finalName>
+        <finalName>springSecurity</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,6 +1,6 @@
-package com.javamaster.dao;
+package web.dao;
 
-import com.javamaster.model.User;
+import web.model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

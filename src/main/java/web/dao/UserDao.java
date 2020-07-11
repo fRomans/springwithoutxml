@@ -1,6 +1,6 @@
-package com.javamaster.dao;
+package web.dao;
 
-import com.javamaster.model.User;
+import web.model.User;
 
 import java.util.List;
 

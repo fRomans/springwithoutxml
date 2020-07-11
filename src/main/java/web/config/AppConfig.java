@@ -1,26 +1,27 @@
-package com.javamaster.config;
-import com.javamaster.model.User;
+package web.config;
+
+
+import web.model.Role;
+import web.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Configuration
-@PropertySource("classpath:application.properties")
-@EnableTransactionManagement
 
-public class RootConfig extends WebMvcConfigurerAdapter {
+@Configuration
+@PropertySource("classpath:db.properties")
+@EnableTransactionManagement
+@ComponentScan(value = "web")
+public class AppConfig {
+
     @Autowired
-    private Environment env;// для изъятия Property
+    private Environment env;
 
     @Bean
     public DataSource getDataSource() {
@@ -45,11 +46,10 @@ public class RootConfig extends WebMvcConfigurerAdapter {
         factoryBean.setHibernateProperties(props);
 
         //аннотированные классы сущностей для регистрации в этом Hibernate SessionFactory
-        factoryBean.setAnnotatedClasses(User.class);
+        factoryBean.setAnnotatedClasses(User.class, Role.class);//указывать вместе, а то не будет работать
         return factoryBean;
     }
 
-    // непонимаю где используется getTransactionManager???????????????????????????????????????????????
     @Bean
     public HibernateTransactionManager getTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
