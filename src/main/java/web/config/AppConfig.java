@@ -15,7 +15,7 @@ import java.util.Properties;
 
 
 @Configuration
-@PropertySource("classpath:db.properties")
+@PropertySource("classpath:application.properties")
 @EnableTransactionManagement
 @ComponentScan(value = "web")
 public class AppConfig {

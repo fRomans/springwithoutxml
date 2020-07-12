@@ -1,20 +1,25 @@
 package web.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "roleSS")
-public class Role {
+public class Role implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
+    @Column(name = "role")
     private String role;
+
+    @ManyToOne
+    @JoinColumn(name="id_user", nullable=false)
+    private User user;
 
 
     public Role() {
@@ -52,5 +57,11 @@ public class Role {
     @Override
     public int hashCode() {
         return Objects.hash(id, role);
+    }
+
+    @Override
+    public String getAuthority() {//    todo    -- начало реализации метода отсюда
+
+        return null;
     }
 }
